@@ -8,6 +8,13 @@ export default defineConfig({
     rollupOptions: {
       input: ['index.html', ...homeHTML],
     },
+    minify: true,
+    sourcemap: false
+  },
+  esbuild: {
+    drop: ['console', 'debugger'],
+    target: 'es2015',
+    legalComments: 'none',
   },
   plugins: [vue()],
   server: {

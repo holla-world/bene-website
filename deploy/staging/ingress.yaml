@@ -1,0 +1,15 @@
+apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: bene-web-route
+spec:
+  http:
+    - name: bene-web
+      match:
+        paths:
+          - /*
+        hosts:
+          - bene.staging.voya.world
+      backends:
+        - serviceName: bene-web
+          servicePort: 80

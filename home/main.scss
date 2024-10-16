@@ -1,0 +1,572 @@
+// @import '../lib/style/font.scss';
+
+@mixin mobile-viewer {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin pc-viewer {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin bgImg($url, $width, $height) {
+  width: $width;
+  height: $height;
+  background-size: 100% 100%;
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+@font-face {
+  font-family: 'ReNaNpx Kufi Fun';
+  src: url(./assets/ReemKufiFun-Regular.ttf);
+}
+
+$gutter: 60px;
+$mobile-gutter: 16px;
+
+html,
+body {
+  background-color: white;
+  color: #000000;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background: white;
+  .service-content {
+    background-color: black;
+    min-height: 934px;
+    @include mobile-viewer {
+      min-height: 100vh !important;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      top: 285px;
+      transform: translate(-50%, 0);
+      width: 100%;
+      height: 739px;
+      background-size: 100% 100%;
+      background-image: url('./assets/cover.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      z-index: 1;
+      @include mobile-viewer {
+        display: none;
+      }
+    }
+    .describe {
+      margin-top: 50px;
+
+      .title {
+        font-size: 40px;
+        color: #ffffff;
+        width: 100%;
+        font-weight: 700;
+        height: 84px;
+        line-height: 84px;
+        text-align: center;
+      }
+      .describe-content {
+        color: #ffffff;
+        position: absolute;
+        z-index: 4;
+        left: 50%;
+        overflow: auto;
+        transform: translate(-50%, 0);
+        background-color: #27272f;
+        width: 1304px;
+        height: 736px;
+        padding: 24px 32px;
+        border-radius: 16px;
+        -webkit-transform: translate(-50%, 0);
+        -moz-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -o-transform: translate(-50%, 0);
+        @include mobile-viewer {
+          width: 300px;
+          height: 600px;
+        }
+        .paragraph {
+          .paragraph-title {
+            margin: 0;
+            font-size: 28px;
+            @include mobile-viewer {
+              font-size: 20px;
+            }
+          }
+          .paragraph-content {
+            margin-top: 12px;
+            font-size: 20px;
+            @include mobile-viewer {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .content {
+    background-color: black;
+    height: 738px;
+    @include mobile-viewer {
+      background-color: white;
+      height: 640px;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      top: 0px;
+      transform: translate(-50%, 0);
+      width: 100%;
+      height: 739px;
+      background-size: 100% 100%;
+      background-image: url('./assets/cover.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      z-index: 1;
+      @include mobile-viewer {
+        width: 100%;
+        height: 610px;
+        background-image: url('./assets/bg-phone.png');
+      }
+    }
+  }
+  &.home {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    .body {
+      flex: 1;
+    }
+
+    @include mobile-viewer {
+      display: block;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 444px;
+      height: 369px;
+      background-size: 100% 100%;
+      background-image: url('./assets/footer_decor.webp');
+      z-index: 2;
+
+      @include mobile-viewer {
+        display: none;
+      }
+    }
+  }
+}
+
+.header {
+  border-bottom: 1px solid #2a2a2a;
+  height: 90px;
+  padding: 0 $gutter;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+
+  @include mobile-viewer {
+    border-bottom: 0;
+    padding: 0 $mobile-gutter;
+    height: 60px;
+    z-index: 10;
+  }
+
+  &::before {
+    // content: '';
+    // position: absolute;
+    // right: 8%;
+    // top: 0;
+    // width: 120px;
+    // height: 90px;
+    // background-size: 100% 100%;
+    // background-image: url('./assets/header_decor.png');
+
+    @include mobile-viewer {
+      width: 60px;
+      height: 60px;
+      background-image: url('./assets/mobile_header_decor.png');
+      right: 15%;
+      z-index: 4;
+    }
+  }
+
+  &::after {
+    @include mobile-viewer {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background-size: 100% 100%;
+      background-image: url('./assets/mobile_header_cover.png');
+      z-index: 1;
+    }
+  }
+
+  .header-logo {
+    width: 103px;
+    height: 32px;
+    background-size: 100% 100%;
+    background-image: url('./assets/logo-queer.png');
+    position: relative;
+    z-index: 5;
+
+    @include mobile-viewer {
+      width: 96px;
+      height: 32px;
+    }
+
+    @at-root {
+      body.freechat {
+        .header-logo {
+          background-image: url('./assets/logo_freechat.png');
+        }
+      }
+    }
+  }
+
+  .header-right {
+    position: relative;
+    z-index: 5;
+    a {
+      text-decoration: none;
+    }
+
+    @include mobile-viewer {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      z-index: 10;
+    }
+    .chooseButton {
+      position: relative;
+      border: 1px solid;
+      border-image: linear-gradient(to right, #f525ff, #ff6b19, #ffaa00, #9ae600, #00d9ff) 1;
+    }
+    .link-button {
+      padding: 12px 16px;
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.5;
+      display: inline-block;
+      // border-radius: 8px;
+
+      // &:hover {
+      //   opacity: 0.3;
+      //   background-image: linear-gradient(135deg, #ff7e35 0%, #f40752 100%);
+      // }
+
+      // &.active {
+      //   background-image: linear-gradient(135deg, #ff7e35 0%, #f40752 100%);
+      // }
+
+      @include mobile-viewer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #1d1d1d;
+        font-size: 14px;
+
+        &:hover {
+          background-image: none;
+          opacity: 1;
+        }
+
+        &.active {
+          background-image: none;
+        }
+
+        &::after {
+          content: '';
+          width: 24px;
+          height: 24px;
+          background-size: 100% 100%;
+          background-image: url('./assets/mobile_arrow.png');
+          display: block;
+        }
+      }
+    }
+  }
+
+  .mobile-header-right {
+    position: relative;
+    z-index: 5;
+    display: none;
+
+    @include mobile-viewer {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-size: 100% 100%;
+      background-image: url('./assets/phone-button.png');
+    }
+  }
+}
+
+.body {
+  margin: 63px $gutter 0;
+  display: flex;
+  // justify-content: space-between;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+  .phone {
+    position: absolute;
+    z-index: 6;
+    height: 614px;
+    width: 589px;
+    background-size: 100% 100%;
+    background-image: url('./assets/group.png');
+    @include mobile-viewer {
+      top: 0px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 156px;
+      height: 320px;
+      background-image: url('./assets/bg-phone-item.png');
+      -webkit-transform: translate(-50%, 0);
+      -moz-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+      -o-transform: translate(-50%, 0);
+    }
+  }
+  @include mobile-viewer {
+    display: block;
+    margin: 24px $mobile-gutter 0;
+  }
+
+  .left-links {
+    margin-top: 46px;
+
+    @include mobile-viewer {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    a {
+      display: inline-block;
+      background-size: 100% 100%;
+      height: 64px;
+
+      @include mobile-viewer {
+        height: 40px;
+      }
+    }
+
+    .link-ios {
+      width: 191px;
+      background-image: url('./assets/ios.png');
+      margin-right: 28px;
+
+      @include mobile-viewer {
+        width: 120px;
+        margin-right: 18px;
+      }
+    }
+
+    .link-android {
+      width: 216px;
+      background-image: url('./assets/android.png');
+
+      @include mobile-viewer {
+        width: 135px;
+      }
+    }
+  }
+}
+
+.body-right {
+  width: 259px;
+  height: 531px;
+  margin-right: 224px;
+
+  @include mobile-viewer {
+    display: none;
+  }
+}
+
+.footer {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  margin: 12px 0;
+  padding: 0 203px;
+  font-size: 12px;
+  opacity: 0.7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include mobile-viewer {
+    color: white;
+    position: absolute;
+    padding: 0;
+    top: 430px;
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-left {
+    font-family: 'ReNaNpx Kufi Fun';
+    color: #000000;
+    font-size: 40px;
+    font-weight: 700;
+    @include mobile-viewer {
+      display: none;
+    }
+    & > p {
+      height: 60px;
+    }
+    .font-color {
+      display: inline-block;
+      padding: 9px;
+      background-image: linear-gradient(to right, #00d9ff, #9ae600, #ffaa00, #ff6b19, #f525ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  .footer-mobile {
+    @include pc-viewer {
+      display: none;
+    }
+    padding: 0 20px;
+    font-size: 24px;
+    font-weight: 700;
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 1px;
+    .font-color {
+      display: inline-block;
+      padding: 9px;
+      background-image: linear-gradient(to right, #00d9ff, #9ae600, #ffaa00, #ff6b19, #f525ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  .footer-middle {
+    font-family: 'ReNaNpx Kufi Fun';
+    display: flex;
+    font-size: 18px;
+    font-weight: 400;
+    flex-direction: column;
+    justify-content: center;
+    @include mobile-viewer {
+      padding: 0 20px;
+    }
+  }
+  .footer-right {
+    .app-store {
+      @include bgImg('./assets/AppStore.png', 216px, 64px);
+    }
+    .google-play {
+      margin-top: 16px;
+      @include bgImg('./assets/GooglePlay.png', 216px, 64px);
+    }
+  }
+}
+.company-desc {
+  width: 100%;
+  // margin-bottom: 0px;
+  height: 60px;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'ReNaNpx Kufi Fun';
+  // @include mobile-viewer{
+  //   margin-top: 60px;
+  // }
+}
+.common-artilce {
+  position: relative;
+  z-index: 5;
+  padding: 50px $gutter;
+
+  @include mobile-viewer {
+    padding: 18px $mobile-gutter;
+  }
+
+  .article-title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+
+    @include mobile-viewer {
+      font-size: 24px;
+      padding: 0 8px;
+      text-align: left;
+    }
+  }
+
+  .article-content {
+    border-radius: 16px;
+    background: #1d1d1d;
+    padding: 24px 32px;
+    margin-top: 24px;
+
+    @include mobile-viewer {
+      margin-top: 4px;
+      padding: 12px 16px;
+    }
+
+    .article-section {
+      margin-top: 24px;
+
+      @include mobile-viewer {
+        margin-top: 8px;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .section-title {
+      font-weight: 600;
+      font-size: 28px;
+      color: #fff;
+
+      @include mobile-viewer {
+        font-size: 20px;
+      }
+    }
+
+    .section-content {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 20px;
+      font-weight: 400;
+
+      @include mobile-viewer {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 5;
+}

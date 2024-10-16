@@ -1,0 +1,23 @@
+apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: bene-web-route
+  annotations:
+    k8s.apisix.apache.org/upstream-scheme: http
+spec:
+  http:
+    - name: bene-web
+      match:
+        paths:
+          - /*
+        hosts:
+          - www.bene.world
+          - bene.world
+      backends:
+        - serviceName: bene-web
+          servicePort: 80
+      plugins:
+        - name: redirect
+          enable: true
+          config:
+            http_to_https: true

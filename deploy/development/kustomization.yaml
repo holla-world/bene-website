@@ -1,0 +1,15 @@
+bases:
+  - ../base/
+
+namespace: ringo-development
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+resources:
+  - ingress.yaml
+
+configMapGenerator:
+  - name: cm-bene-web-config
+    files:
+      - env

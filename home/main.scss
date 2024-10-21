@@ -441,6 +441,7 @@ body {
     color: #ffffff;
     font-size: 40px;
     font-weight: 700;
+    flex-shrink: 0;
     @include mobile-viewer {
       display: none;
     }

@@ -1,7 +1,7 @@
 bases:
   - ../base/
 
-namespace: ringo-production
+namespace: bene-production
 
 generatorOptions:
   disableNameSuffixHash: true

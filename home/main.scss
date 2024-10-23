@@ -153,6 +153,9 @@ body {
       }
     }
     .show_phone_items {
+      @include mobile-viewer{
+        display: none;
+      }
       position: absolute;
       z-index: 2;
       & > img {

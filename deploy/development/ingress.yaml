@@ -9,7 +9,7 @@ spec:
         paths:
           - /*
         hosts:
-          - bene.sandbox.ringo.cool
+          - bene.xxxx.ringo.cool
       backends:
         - serviceName: bene-web
           servicePort: 80

@@ -493,7 +493,7 @@ body {
     justify-content: center;
     color: #ffffffb3;
     @include mobile-viewer {
-      padding: 0 12px;
+      width: 280px;
       font-size: 12px;
     }
   }

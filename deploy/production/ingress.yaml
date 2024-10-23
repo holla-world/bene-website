@@ -11,8 +11,8 @@ spec:
         paths:
           - /*
         hosts:
-          - www.bene.world
-          - bene.world
+          - justbene.com
+          - www.justbene.com
       backends:
         - serviceName: bene-web
           servicePort: 80

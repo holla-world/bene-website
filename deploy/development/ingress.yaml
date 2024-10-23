@@ -9,7 +9,8 @@ spec:
         paths:
           - /*
         hosts:
-          - bene.xxxx.ringo.cool
+          - justbene.com
+          - www.justbene.com
       backends:
         - serviceName: bene-web
           servicePort: 80

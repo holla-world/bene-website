@@ -1,12 +1,10 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { globbySync } from 'globby';
-let homeHTML = globbySync('./home/*.html');
-// https://vitejs.dev/config/
 export default defineConfig({
   build: {
     rollupOptions: {
-      input: ['index.html', 'facility.html', 'practice.html']
+      input: ['index.html', 'facility.html', 'practice.html', 'delete.html']
     },
     minify: true,
     sourcemap: false
